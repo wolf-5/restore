@@ -1,0 +1,52 @@
+<html>
+	<style>
+html {
+background-color: #24272b;
+ color: white;
+}
+</style>
+<script>
+if(document.cookie.indexOf('kex=0') >= 0)
+    document.location.href = '../index.html';
+	document.cookie = 'kex=0';
+</script>
+<script>
+function print(){}
+</script>
+<script src="exploit.js"></script>
+<script src="helpers.js"></script>
+<script src="malloc.js"></script>
+<script src="rop.js"></script>
+<script src="syscalls.js"></script>
+<script src="syscalls2.js"></script>
+<script src="jb.js"></script>
+<script>
+
+function loadScript(path)
+{
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', path, false);
+    xhr.send('');
+    eval.call(window, xhr.responseText);
+}
+
+(function()
+{
+    loadScript('loader.js')
+
+    loadScript('Cache672.js')
+
+})();
+</script>
+<script src="./preloader.js"></script>
+<script>
+    if(main_ret == 0 || main_ret == 179)
+    {
+        alert("Jailbreak Success !\n PRESS OK AND WAIT FOR THE MEMORY ERROR !!!!!");
+    read_ptr_at(0);
+    }
+    else
+        alert("Jailbreak failed! Reboot your PS4 and try again.");
+</script>
+</body>
+</html>
